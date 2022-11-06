@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		356F7D3628FB72BA00F5B86D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356F7D3528FB72BA00F5B86D /* Cocoa.framework */; };
+		356F7D3928FB72DD00F5B86D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356F7D3828FB72DD00F5B86D /* IOKit.framework */; };
+		356F7D3E28FB98D400F5B86D /* fs_cocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356F7D3D28FB98D400F5B86D /* fs_cocoa.swift */; };
+		356F7D4328FC50D100F5B86D /* fs_input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 356F7D4228FC50D100F5B86D /* fs_input.cpp */; };
+		356F7D5C28FC547B00F5B86D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356F7D5B28FC547A00F5B86D /* main.swift */; };
+		356F7D6028FC553700F5B86D /* MinuetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356F7D5F28FC553700F5B86D /* MinuetView.swift */; };
+		356F7D8C28FCBDC700F5B86D /* minuet_renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 356F7D8A28FCBDC700F5B86D /* minuet_renderer.cpp */; };
+		356F7D9228FCBF9C00F5B86D /* fs_lib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 356F7D9128FCBF9C00F5B86D /* fs_lib.cpp */; };
+		356F7D9928FEE34D00F5B86D /* minuet_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 356F7D9728FEE34D00F5B86D /* minuet_camera.cpp */; };
+		356F7DA628FF865400F5B86D /* minuet_ray_trace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 356F7DA528FF865400F5B86D /* minuet_ray_trace.cpp */; };
+		356F7DEF29042AC600F5B86D /* MinuetWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356F7DEE29042AC500F5B86D /* MinuetWindow.swift */; };
+		35AE31922908A2E000E4BFC4 /* fs_cocoa_input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35AE31902908A2E000E4BFC4 /* fs_cocoa_input.cpp */; };
+		35AE31A12909D0F800E4BFC4 /* minuet_platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35AE319F2909D0F800E4BFC4 /* minuet_platform.cpp */; };
+		35AE31A9290C62A300E4BFC4 /* MinuetUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE31A8290C62A300E4BFC4 /* MinuetUIView.swift */; };
+		35AE31AC290D5F7600E4BFC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AE31AB290D5F7600E4BFC4 /* CoreGraphics.framework */; };
+		35AE31AF290D751E00E4BFC4 /* minuet_shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 35AE31AE290D751E00E4BFC4 /* minuet_shaders.metal */; };
+		35AE3261290DE13500E4BFC4 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35AE3258290DE13400E4BFC4 /* imgui.cpp */; };
+		35AE3262290DE13500E4BFC4 /* imgui_impl_metal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 35AE3259290DE13400E4BFC4 /* imgui_impl_metal.mm */; };
+		35AE3263290DE13500E4BFC4 /* imgui_impl_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 35AE325A290DE13500E4BFC4 /* imgui_impl_osx.mm */; };
+		35AE3264290DE13500E4BFC4 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35AE325B290DE13500E4BFC4 /* imgui_tables.cpp */; };
+		35AE3265290DE13500E4BFC4 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35AE325D290DE13500E4BFC4 /* imgui_draw.cpp */; };
+		35AE3266290DE13500E4BFC4 /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35AE3260290DE13500E4BFC4 /* imgui_widgets.cpp */; };
+		35AE3270290DE2BB00E4BFC4 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AE326F290DE2BB00E4BFC4 /* GameController.framework */; };
+		35AE3274290DE74200E4BFC4 /* minuet_imgui.mm in Sources */ = {isa = PBXBuildFile; fileRef = 35AE3272290DE74200E4BFC4 /* minuet_imgui.mm */; };
+		35AE327D290E309B00E4BFC4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AE327C290E309B00E4BFC4 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		356F7D1728FB70D600F5B86D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		356F7D1928FB70D600F5B86D /* Minuet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Minuet; sourceTree = BUILT_PRODUCTS_DIR; };
+		356F7D3528FB72BA00F5B86D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		356F7D3828FB72DD00F5B86D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		356F7D3D28FB98D400F5B86D /* fs_cocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fs_cocoa.swift; sourceTree = "<group>"; };
+		356F7D4128FC505E00F5B86D /* fs_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fs_input.h; sourceTree = "<group>"; };
+		356F7D4228FC50D100F5B86D /* fs_input.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fs_input.cpp; sourceTree = "<group>"; };
+		356F7D5B28FC547A00F5B86D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		356F7D5F28FC553700F5B86D /* MinuetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuetView.swift; sourceTree = "<group>"; };
+		356F7D6428FC5ED800F5B86D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		356F7D8A28FCBDC700F5B86D /* minuet_renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = minuet_renderer.cpp; sourceTree = "<group>"; };
+		356F7D8B28FCBDC700F5B86D /* minuet_renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minuet_renderer.h; sourceTree = "<group>"; };
+		356F7D9028FCBF9C00F5B86D /* fs_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fs_lib.h; sourceTree = "<group>"; };
+		356F7D9128FCBF9C00F5B86D /* fs_lib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fs_lib.cpp; sourceTree = "<group>"; };
+		356F7D9528FDE42300F5B86D /* fs_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fs_vector.h; sourceTree = "<group>"; };
+		356F7D9728FEE34D00F5B86D /* minuet_camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = minuet_camera.cpp; sourceTree = "<group>"; };
+		356F7D9828FEE34D00F5B86D /* minuet_camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minuet_camera.h; sourceTree = "<group>"; };
+		356F7DA128FF0F4100F5B86D /* fs_matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fs_matrix.h; sourceTree = "<group>"; };
+		356F7DA428FF854E00F5B86D /* minuet_ray_trace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minuet_ray_trace.h; sourceTree = "<group>"; };
+		356F7DA528FF865400F5B86D /* minuet_ray_trace.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = minuet_ray_trace.cpp; sourceTree = "<group>"; };
+		356F7DAC28FF8A6700F5B86D /* minuet_ray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minuet_ray.h; sourceTree = "<group>"; };
+		356F7DEE29042AC500F5B86D /* MinuetWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuetWindow.swift; sourceTree = "<group>"; };
+		356F7DF429049FB400F5B86D /* minuet_scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minuet_scene.h; sourceTree = "<group>"; };
+		359E603B290724600019EDFF /* fs_quaternion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fs_quaternion.h; sourceTree = "<group>"; };
+		35AE318F2908A27200E4BFC4 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		35AE31902908A2E000E4BFC4 /* fs_cocoa_input.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fs_cocoa_input.cpp; sourceTree = "<group>"; };
+		35AE31912908A2E000E4BFC4 /* fs_cocoa_input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fs_cocoa_input.h; sourceTree = "<group>"; };
+		35AE319F2909D0F800E4BFC4 /* minuet_platform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = minuet_platform.cpp; sourceTree = "<group>"; };
+		35AE31A02909D0F800E4BFC4 /* minuet_platform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minuet_platform.h; sourceTree = "<group>"; };
+		35AE31A8290C62A300E4BFC4 /* MinuetUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuetUIView.swift; sourceTree = "<group>"; };
+		35AE31AB290D5F7600E4BFC4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		35AE31AE290D751E00E4BFC4 /* minuet_shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = minuet_shaders.metal; sourceTree = "<group>"; };
+		35AE3256290DE13400E4BFC4 /* imgui_impl_metal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_metal.h; sourceTree = "<group>"; };
+		35AE3257290DE13400E4BFC4 /* imgui_impl_osx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_osx.h; sourceTree = "<group>"; };
+		35AE3258290DE13400E4BFC4 /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui.cpp; sourceTree = "<group>"; };
+		35AE3259290DE13400E4BFC4 /* imgui_impl_metal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = imgui_impl_metal.mm; sourceTree = "<group>"; };
+		35AE325A290DE13500E4BFC4 /* imgui_impl_osx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = imgui_impl_osx.mm; sourceTree = "<group>"; };
+		35AE325B290DE13500E4BFC4 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
+		35AE325C290DE13500E4BFC4 /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
+		35AE325D290DE13500E4BFC4 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
+		35AE325E290DE13500E4BFC4 /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
+		35AE325F290DE13500E4BFC4 /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
+		35AE3260290DE13500E4BFC4 /* imgui_widgets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_widgets.cpp; sourceTree = "<group>"; };
+		35AE3269290DE1C600E4BFC4 /* imstb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_textedit.h; sourceTree = "<group>"; };
+		35AE326B290DE21700E4BFC4 /* imstb_rectpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_rectpack.h; sourceTree = "<group>"; };
+		35AE326D290DE23E00E4BFC4 /* imstb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_truetype.h; sourceTree = "<group>"; };
+		35AE326F290DE2BB00E4BFC4 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		35AE3272290DE74200E4BFC4 /* minuet_imgui.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = minuet_imgui.mm; sourceTree = "<group>"; };
+		35AE3273290DE74200E4BFC4 /* minuet_imgui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minuet_imgui.h; sourceTree = "<group>"; };
+		35AE3276290DE78F00E4BFC4 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		35AE327C290E309B00E4BFC4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		356F7D1628FB70D600F5B86D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35AE327D290E309B00E4BFC4 /* QuartzCore.framework in Frameworks */,
+				35AE3270290DE2BB00E4BFC4 /* GameController.framework in Frameworks */,
+				35AE31AC290D5F7600E4BFC4 /* CoreGraphics.framework in Frameworks */,
+				356F7D3628FB72BA00F5B86D /* Cocoa.framework in Frameworks */,
+				356F7D3928FB72DD00F5B86D /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		356F7D1028FB70D600F5B86D = {
+			isa = PBXGroup;
+			children = (
+				356F7D1B28FB70D600F5B86D /* Minuet */,
+				356F7D1A28FB70D600F5B86D /* Products */,
+				356F7D3428FB72BA00F5B86D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		356F7D1A28FB70D600F5B86D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				356F7D1928FB70D600F5B86D /* Minuet */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		356F7D1B28FB70D600F5B86D /* Minuet */ = {
+			isa = PBXGroup;
+			children = (
+				35AE3254290DDFEE00E4BFC4 /* imgui */,
+				356F7D2A28FB711D00F5B86D /* fs_lib */,
+				35AE31AD290D74FB00E4BFC4 /* metal */,
+				356F7DAC28FF8A6700F5B86D /* minuet_ray.h */,
+				356F7DF429049FB400F5B86D /* minuet_scene.h */,
+				356F7D8B28FCBDC700F5B86D /* minuet_renderer.h */,
+				356F7D8A28FCBDC700F5B86D /* minuet_renderer.cpp */,
+				356F7D9828FEE34D00F5B86D /* minuet_camera.h */,
+				356F7D9728FEE34D00F5B86D /* minuet_camera.cpp */,
+				35AE31A02909D0F800E4BFC4 /* minuet_platform.h */,
+				35AE319F2909D0F800E4BFC4 /* minuet_platform.cpp */,
+				356F7DA428FF854E00F5B86D /* minuet_ray_trace.h */,
+				356F7DA528FF865400F5B86D /* minuet_ray_trace.cpp */,
+				356F7DEE29042AC500F5B86D /* MinuetWindow.swift */,
+				356F7D5F28FC553700F5B86D /* MinuetView.swift */,
+				35AE31A8290C62A300E4BFC4 /* MinuetUIView.swift */,
+				356F7D5B28FC547A00F5B86D /* main.swift */,
+				356F7D6428FC5ED800F5B86D /* module.modulemap */,
+			);
+			path = Minuet;
+			sourceTree = "<group>";
+		};
+		356F7D2A28FB711D00F5B86D /* fs_lib */ = {
+			isa = PBXGroup;
+			children = (
+				356F7D9028FCBF9C00F5B86D /* fs_lib.h */,
+				356F7D9128FCBF9C00F5B86D /* fs_lib.cpp */,
+				356F7D4128FC505E00F5B86D /* fs_input.h */,
+				356F7D4228FC50D100F5B86D /* fs_input.cpp */,
+				356F7D9528FDE42300F5B86D /* fs_vector.h */,
+				356F7DA128FF0F4100F5B86D /* fs_matrix.h */,
+				359E603B290724600019EDFF /* fs_quaternion.h */,
+				35AE31912908A2E000E4BFC4 /* fs_cocoa_input.h */,
+				35AE31902908A2E000E4BFC4 /* fs_cocoa_input.cpp */,
+				356F7D3D28FB98D400F5B86D /* fs_cocoa.swift */,
+				35AE318F2908A27200E4BFC4 /* module.modulemap */,
+			);
+			path = fs_lib;
+			sourceTree = "<group>";
+		};
+		356F7D3428FB72BA00F5B86D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35AE327C290E309B00E4BFC4 /* QuartzCore.framework */,
+				35AE326F290DE2BB00E4BFC4 /* GameController.framework */,
+				35AE31AB290D5F7600E4BFC4 /* CoreGraphics.framework */,
+				356F7D3828FB72DD00F5B86D /* IOKit.framework */,
+				356F7D3528FB72BA00F5B86D /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		35AE31AD290D74FB00E4BFC4 /* metal */ = {
+			isa = PBXGroup;
+			children = (
+				35AE31AE290D751E00E4BFC4 /* minuet_shaders.metal */,
+			);
+			path = metal;
+			sourceTree = "<group>";
+		};
+		35AE3254290DDFEE00E4BFC4 /* imgui */ = {
+			isa = PBXGroup;
+			children = (
+				35AE325E290DE13500E4BFC4 /* imconfig.h */,
+				35AE325D290DE13500E4BFC4 /* imgui_draw.cpp */,
+				35AE3256290DE13400E4BFC4 /* imgui_impl_metal.h */,
+				35AE3259290DE13400E4BFC4 /* imgui_impl_metal.mm */,
+				35AE3257290DE13400E4BFC4 /* imgui_impl_osx.h */,
+				35AE325A290DE13500E4BFC4 /* imgui_impl_osx.mm */,
+				35AE325F290DE13500E4BFC4 /* imgui_internal.h */,
+				35AE3269290DE1C600E4BFC4 /* imstb_textedit.h */,
+				35AE326B290DE21700E4BFC4 /* imstb_rectpack.h */,
+				35AE326D290DE23E00E4BFC4 /* imstb_truetype.h */,
+				35AE325B290DE13500E4BFC4 /* imgui_tables.cpp */,
+				35AE3260290DE13500E4BFC4 /* imgui_widgets.cpp */,
+				35AE325C290DE13500E4BFC4 /* imgui.h */,
+				35AE3258290DE13400E4BFC4 /* imgui.cpp */,
+				35AE3273290DE74200E4BFC4 /* minuet_imgui.h */,
+				35AE3272290DE74200E4BFC4 /* minuet_imgui.mm */,
+				35AE3276290DE78F00E4BFC4 /* module.modulemap */,
+			);
+			path = imgui;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		356F7D1828FB70D600F5B86D /* Minuet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 356F7D2028FB70D600F5B86D /* Build configuration list for PBXNativeTarget "Minuet" */;
+			buildPhases = (
+				356F7D1528FB70D600F5B86D /* Sources */,
+				356F7D1628FB70D600F5B86D /* Frameworks */,
+				356F7D1728FB70D600F5B86D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Minuet;
+			productName = Minuet;
+			productReference = 356F7D1928FB70D600F5B86D /* Minuet */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		356F7D1128FB70D600F5B86D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					356F7D1828FB70D600F5B86D = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = 356F7D1428FB70D600F5B86D /* Build configuration list for PBXProject "Minuet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 356F7D1028FB70D600F5B86D;
+			productRefGroup = 356F7D1A28FB70D600F5B86D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				356F7D1828FB70D600F5B86D /* Minuet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		356F7D1528FB70D600F5B86D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				356F7D5C28FC547B00F5B86D /* main.swift in Sources */,
+				35AE3262290DE13500E4BFC4 /* imgui_impl_metal.mm in Sources */,
+				35AE3266290DE13500E4BFC4 /* imgui_widgets.cpp in Sources */,
+				356F7D4328FC50D100F5B86D /* fs_input.cpp in Sources */,
+				35AE3265290DE13500E4BFC4 /* imgui_draw.cpp in Sources */,
+				35AE31922908A2E000E4BFC4 /* fs_cocoa_input.cpp in Sources */,
+				356F7D9228FCBF9C00F5B86D /* fs_lib.cpp in Sources */,
+				356F7D8C28FCBDC700F5B86D /* minuet_renderer.cpp in Sources */,
+				35AE3261290DE13500E4BFC4 /* imgui.cpp in Sources */,
+				35AE3264290DE13500E4BFC4 /* imgui_tables.cpp in Sources */,
+				356F7D9928FEE34D00F5B86D /* minuet_camera.cpp in Sources */,
+				35AE31A12909D0F800E4BFC4 /* minuet_platform.cpp in Sources */,
+				356F7D6028FC553700F5B86D /* MinuetView.swift in Sources */,
+				35AE3274290DE74200E4BFC4 /* minuet_imgui.mm in Sources */,
+				35AE31A9290C62A300E4BFC4 /* MinuetUIView.swift in Sources */,
+				35AE31AF290D751E00E4BFC4 /* minuet_shaders.metal in Sources */,
+				356F7D3E28FB98D400F5B86D /* fs_cocoa.swift in Sources */,
+				356F7DA628FF865400F5B86D /* minuet_ray_trace.cpp in Sources */,
+				35AE3263290DE13500E4BFC4 /* imgui_impl_osx.mm in Sources */,
+				356F7DEF29042AC600F5B86D /* MinuetWindow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		356F7D1E28FB70D600F5B86D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		356F7D1F28FB70D600F5B86D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		356F7D2128FB70D600F5B86D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VAA7YY5ZEU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "Minuet/**";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		356F7D2228FB70D600F5B86D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VAA7YY5ZEU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "Minuet/**";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		356F7D1428FB70D600F5B86D /* Build configuration list for PBXProject "Minuet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				356F7D1E28FB70D600F5B86D /* Debug */,
+				356F7D1F28FB70D600F5B86D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		356F7D2028FB70D600F5B86D /* Build configuration list for PBXNativeTarget "Minuet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				356F7D2128FB70D600F5B86D /* Debug */,
+				356F7D2228FB70D600F5B86D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 356F7D1128FB70D600F5B86D /* Project object */;
+}

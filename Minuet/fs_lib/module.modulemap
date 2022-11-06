@@ -1,0 +1,4 @@
+module FSCocoaInput {
+    header "fs_cocoa_input.h"
+    export *
+}

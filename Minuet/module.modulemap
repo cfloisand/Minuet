@@ -1,0 +1,4 @@
+module MNRayTrace {
+    header "minuet_ray_trace.h"
+    export *
+}
