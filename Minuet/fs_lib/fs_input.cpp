@@ -1,9 +1,6 @@
-//
-//  fs_input.cpp
-//  Minuet
-//
-//  Created by Christian Floisand on 2022-10-16.
-//
+/*  fs_input.cpp - Flyingsand input
+ *  v. 0.1
+ */
 
 #include <stdio.h>
 #include <stdlib.h>

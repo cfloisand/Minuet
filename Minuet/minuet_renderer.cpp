@@ -3,6 +3,7 @@
 //  Minuet
 //
 //  Created by Christian Floisand on 2022-10-16.
+//  Adapted from https://github.com/TheCherno/RayTracing, by Cherno
 //
 
 #include "minuet_renderer.h"
@@ -11,7 +12,9 @@
 #pragma mark - mnImage
 
 mnImage::mnImage(fsi16 width, fsi16 height)
-: width(width), height(height) {
+    : width(width)
+    , height(height)
+{
     pixelData = new fsu32[width * height];
 }
 

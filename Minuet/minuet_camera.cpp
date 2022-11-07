@@ -3,6 +3,7 @@
 //  Minuet
 //
 //  Created by Christian Floisand on 2022-10-18.
+//  Adapted from https://github.com/TheCherno/RayTracing, by Cherno
 //
 
 #include "minuet_camera.h"
@@ -10,7 +11,9 @@
 
 
 mnCamera::mnCamera(fsr32 verticalFOV, fsr32 nearClip, fsr32 farClip)
-    : _verticalFOV(verticalFOV), _nearClip(nearClip), _farClip(farClip)
+    : _verticalFOV(verticalFOV)
+    , _nearClip(nearClip)
+    , _farClip(farClip)
 {
     _forwardDirection = {0.f, 0.f, -1.f};
     _position = {0.f, 0.f, 20.f};

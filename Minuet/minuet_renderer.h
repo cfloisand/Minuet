@@ -3,6 +3,7 @@
 //  Minuet
 //
 //  Created by Christian Floisand on 2022-10-16.
+//  Adapted from https://github.com/TheCherno/RayTracing, by Cherno
 //
 
 #pragma once
@@ -50,7 +51,7 @@ private:
     HitPayload closestHit(const mnRay& ray, fsr32 hitDistance, fsi32 objectIndex);
     HitPayload miss(const mnRay& ray);
 private:
-    mnImage * _image;
+    mnImage * _image = nullptr;
     
     const mnScene * _activeScene;
     const mnCamera * _activeCamera;

@@ -3,6 +3,7 @@
 //  Minuet
 //
 //  Created by Christian Floisand on 2022-10-22.
+//  Adapted from https://github.com/TheCherno/RayTracing, by Cherno
 //
 
 #pragma once

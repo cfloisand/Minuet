@@ -1,4 +1,4 @@
-/*    fs_input.h - Flying Sand input
+/*  fs_input.h - Flyingsand input
  *  v. 0.1
  */
 
