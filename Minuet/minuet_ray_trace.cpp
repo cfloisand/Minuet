@@ -14,15 +14,17 @@
 #pragma mark - mnPlatform
 
 // Platform stubs
-static void ios_hide_cursor_stub() {}
-static void ios_show_cursor_stub() {}
+static void platform_hide_cursor_stub() {}
+static void platform_show_cursor_stub() {}
+static void platform_quit_stub() {}
 
 static mnPlatform platform;
 
 void
 mn_platform_initialize() {
-    platform.hide_cursor = ios_hide_cursor_stub;
-    platform.show_cursor = ios_show_cursor_stub;
+    platform.hide_cursor = platform_hide_cursor_stub;
+    platform.show_cursor = platform_show_cursor_stub;
+    platform.quit = platform_quit_stub;
 }
 
 void

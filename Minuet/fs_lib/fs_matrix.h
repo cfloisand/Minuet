@@ -1,4 +1,4 @@
-/* fs_matrix.h - Flying Sand Matrix Library
+/* fs_matrix.h - Flyingsand Matrices
  * v. 0.1
  */
 

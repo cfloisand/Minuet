@@ -1,4 +1,4 @@
-/*  fs_vector.h - Flying Sand Vector Library
+/*  fs_vector.h - Flyingsand Vectors
  *  v. 0.1
  */
 
