@@ -13,6 +13,7 @@ class MinuetWindow: FSWindow {
     private var displayLink: CVDisplayLink!
     private var frameLock = pthread_mutex_t()
     private var frameEnd = pthread_cond_t()
+    private var timingToken: OpaquePointer?
     
     private let metalDevice: MTLDevice
     
@@ -89,7 +90,14 @@ class MinuetWindow: FSWindow {
         pthread_cond_destroy(&frameEnd)
     }
     
-    private var timingToken: OpaquePointer?
+    private func vsyncSignal() -> CVReturn {
+        // NOTE(christian): Synchronize with thread waiting on condition variable.
+        pthread_mutex_lock(&frameLock)
+        pthread_cond_signal(&frameEnd)
+        pthread_mutex_unlock(&frameLock)
+        
+        return kCVReturnSuccess
+    }
     
     func update(input: OpaquePointer) {
         assert(Thread.isMainThread, "update must be called from the main thread.")
@@ -111,15 +119,6 @@ class MinuetWindow: FSWindow {
         pthread_mutex_unlock(&frameLock)
         
         minuetView?.setNeedsDisplay(minuetView?.bounds ?? .zero)
-    }
-    
-    private func vsyncSignal() -> CVReturn {
-        // NOTE(christian): Synchronize with thread waiting on condition variable.
-        pthread_mutex_lock(&frameLock)
-        pthread_cond_signal(&frameEnd)
-        pthread_mutex_unlock(&frameLock)
-        
-        return kCVReturnSuccess
     }
     
     func layoutSubviews(withContentSize contentSize: NSSize) {

@@ -19,8 +19,7 @@ class MinuetView: NSView {
         let height: Int
     }
     private var viewport: Viewport
-    
-    private var lock = pthread_mutex_t()
+    private var viewportLock = pthread_mutex_t()
     
     
     override init(frame frameRect: NSRect) {
@@ -31,7 +30,7 @@ class MinuetView: NSView {
         super.init(frame: frameRect)
         configureBitmapContext(viewport: viewport)
         
-        pthread_mutex_init(&lock, nil)
+        pthread_mutex_init(&viewportLock, nil)
     }
     
     convenience init() {
@@ -43,7 +42,7 @@ class MinuetView: NSView {
     }
     
     deinit {
-        pthread_mutex_destroy(&lock)
+        pthread_mutex_destroy(&viewportLock)
     }
     
     override var acceptsFirstResponder: Bool { return true }
@@ -57,9 +56,9 @@ class MinuetView: NSView {
             let width = Int(newValue.width)
             let height = Int(newValue.height)
             if width != viewport.width || height != viewport.height {
-                pthread_mutex_lock(&lock)
+                pthread_mutex_lock(&viewportLock)
                 viewport = Viewport(width: width, height: height)
-                pthread_mutex_unlock(&lock)
+                pthread_mutex_unlock(&viewportLock)
             }
         }
     }
@@ -83,9 +82,9 @@ class MinuetView: NSView {
     }
     
     func update(input: OpaquePointer, scene: OpaquePointer, dt: Float) {
-        pthread_mutex_lock(&lock)
+        pthread_mutex_lock(&viewportLock)
         let currentViewport = viewport
-        pthread_mutex_unlock(&lock)
+        pthread_mutex_unlock(&viewportLock)
         
         if bitmapContext == nil || (currentViewport.width != bitmapContext!.width || currentViewport.height != bitmapContext!.height) {
             configureBitmapContext(viewport: currentViewport)

@@ -10,7 +10,7 @@ import MNImGui
 
 
 class MinuetUIView: NSView {
-    let metalLayer = CAMetalLayer()
+    private let metalLayer = CAMetalLayer()
     
     
     init(metalDevice: MTLDevice) {
