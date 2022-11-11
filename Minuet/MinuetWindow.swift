@@ -17,8 +17,8 @@ class MinuetWindow: FSWindow {
     
     private let metalDevice: MTLDevice
     
-    private weak var minuetView: MinuetView?
-    private weak var uiView: MinuetUIView?
+    private weak var minuetView: MinuetView!
+    private weak var uiView: MinuetUIView!
     
     private let scene: OpaquePointer
     
@@ -110,22 +110,18 @@ class MinuetWindow: FSWindow {
         }
         timingToken = mn_platform_timing_start()
         
-        minuetView?.update(input: input, scene: scene, dt: Float(dt/1000))
-        uiView?.update(scene: scene, platform: mn_platform_get())
+        minuetView.update(input: input, scene: scene, dt: Float(dt/1000))
+        uiView.update(scene: scene, renderer: minuetView.renderer, platform: mn_platform_get())
         
         // NOTE(christian): Synchronize with display link thread to keep this thread running at the monitor's refresh rate.
         pthread_mutex_lock(&frameLock)
         pthread_cond_wait(&frameEnd, &frameLock)
         pthread_mutex_unlock(&frameLock)
         
-        minuetView?.setNeedsDisplay(minuetView?.bounds ?? .zero)
+        minuetView.setNeedsDisplay(minuetView.bounds)
     }
     
     func layoutSubviews(withContentSize contentSize: NSSize) {
-        guard let minuetView = minuetView, let uiView = uiView else {
-            fatalError("Missing subviews for layout.")
-        }
-        
         let uiViewWidth: CGFloat = 300
         uiView.frame = NSRect(x: contentSize.width - uiViewWidth, y: 0, width: uiViewWidth, height: contentSize.height)
         minuetView.frame = NSRect(x: 0, y: 0, width: contentSize.width - uiViewWidth, height: contentSize.height)

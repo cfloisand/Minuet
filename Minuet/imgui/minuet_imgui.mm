@@ -70,7 +70,7 @@ mn_imgui_shutdown() {
 }
 
 void
-mn_imgui_update(NSView *view, id<CAMetalDrawable> drawable, mnScene *scene, mnPlatform *platform) {
+mn_imgui_update(NSView *view, id<CAMetalDrawable> drawable, mnScene *scene, mnRenderer *renderer, mnPlatform *platform) {
     id<MTLCommandBuffer> commandBuffer = commandQueue.commandBuffer;
     
     renderPassDescriptor.colorAttachments[0].texture = drawable.texture;
@@ -82,8 +82,15 @@ mn_imgui_update(NSView *view, id<CAMetalDrawable> drawable, mnScene *scene, mnPl
 
     {
         ImGui::Begin("Settings");
-        ImGui::Text("Last render: %.3fms", mnRenderer::lastRenderTime);
+        ImGui::Text("Last render: %.3fms", renderer->lastRenderTime);
         ImGui::Spacing();
+        ImGui::Spacing();
+        ImGui::Checkbox("Accumulate", &renderer->getSettings().accumulate);
+        if (ImGui::Button("Reset")) {
+            renderer->resetFrameIndex();
+        }
+        ImGui::Spacing();
+        ImGui::Separator();
         ImGui::Spacing();
         if (ImGui::Button("Quit")) {
             platform->quit();

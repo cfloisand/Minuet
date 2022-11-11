@@ -35,8 +35,6 @@ mnImage::resize(fsi16 w, fsi16 h) {
 
 #pragma mark - mnRenderer
 
-fsr64 mnRenderer::lastRenderTime = 0;
-
 static fsu32
 convertToRGBA(const fsv4f& color) {
     fsu8 r = (fsu8)(color.r * 255.f);
@@ -55,13 +53,28 @@ mnRenderer::render(const mnScene& scene, const mnCamera& camera) {
         _activeScene = &scene;
         _activeCamera = &camera;
         
+        if (_frameIndex == 1) {
+            fs_memclear(_accumulationData, _image->width * _image->height * sizeof(fsv4f));
+        }
+        
         for (fsu32 y = 0; y < _image->height; ++y) {
             for (fsu32 x = 0; x < _image->width; ++x) {
                 fsv4f color = perPixel(x, y);
-                color = fs_vclamp01(color);
-                _image->pixelData[x + (y * _image->width)] = convertToRGBA(color);
+                _accumulationData[x + (y * _image->width)] += color;
+                
+                fsv4f accumulatedColor = _accumulationData[x + (y * _image->width)];
+                accumulatedColor /= (fsr32)_frameIndex;
+                
+                accumulatedColor = fs_vclamp01(accumulatedColor);
+                _image->pixelData[x + (y * _image->width)] = convertToRGBA(accumulatedColor);
             }
         }
+    }
+    
+    if (_settings.accumulate) {
+        _frameIndex++;
+    } else {
+        _frameIndex = 1;
     }
     
     lastRenderTime = fs_timing_stop(start);
@@ -80,6 +93,9 @@ mnRenderer::resize(fsi16 width, fsi16 height) {
     } else {
         _image = new mnImage(width, height);
     }
+    
+    delete [] _accumulationData;
+    _accumulationData = new fsv4f[width * height];
 }
 
 fsv4f

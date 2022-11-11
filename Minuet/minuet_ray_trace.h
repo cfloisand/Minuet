@@ -71,7 +71,7 @@ mnCamera* mn_make_camera(float verticalFOV, float nearClip, float farClip);
 
 void mn_camera_resize(mnCamera *camera, int16_t width, int16_t height);
 
-void mn_camera_update(mnCamera *camera, fsRawInput *input, float dt);
+void mn_camera_update(mnCamera *camera, mnRenderer *renderer, fsRawInput *input, float dt);
 
 #ifdef __cplusplus
 }

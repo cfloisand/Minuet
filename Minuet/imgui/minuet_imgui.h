@@ -17,12 +17,14 @@ extern "C" {
 
 struct mnScene;
 typedef struct mnScene mnScene;
+struct mnRenderer;
+typedef struct mnRenderer mnRenderer;
 struct mnPlatform;
 typedef struct mnPlatform mnPlatform;
 
 void mn_imgui_init(id<MTLDevice> device, NSView *view);
 void mn_imgui_shutdown();
-void mn_imgui_update(NSView *view, id<CAMetalDrawable> drawable, mnScene *scene, mnPlatform *platform);
+void mn_imgui_update(NSView *view, id<CAMetalDrawable> drawable, mnScene *scene, mnRenderer *renderer, mnPlatform *platform);
 
 #ifdef __cplusplus
 }

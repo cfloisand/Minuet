@@ -143,6 +143,8 @@ mn_camera_resize(mnCamera *camera, fsi16 width, fsi16 height) {
 }
 
 void
-mn_camera_update(mnCamera *camera, fsRawInput *input, fsr32 dt) {
-    camera->update(input, &platform, dt);
+mn_camera_update(mnCamera *camera, mnRenderer *renderer, fsRawInput *input, fsr32 dt) {
+    if (camera->update(input, &platform, dt)) {
+        renderer->resetFrameIndex();
+    }
 }

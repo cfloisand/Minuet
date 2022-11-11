@@ -40,12 +40,12 @@ class MinuetUIView: NSView {
         mn_imgui_shutdown()
     }
     
-    func update(scene: OpaquePointer, platform: OpaquePointer) {
+    func update(scene: OpaquePointer, renderer: OpaquePointer, platform: OpaquePointer) {
         guard let drawable = metalLayer.nextDrawable() else {
             return
         }
         
-        mn_imgui_update(self, drawable, scene, platform)
+        mn_imgui_update(self, drawable, scene, renderer, platform)
     }
     
 }

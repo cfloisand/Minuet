@@ -23,7 +23,7 @@ mnCamera::mnCamera(fsr32 verticalFOV, fsr32 nearClip, fsr32 farClip)
     _inverseView = fs_matrix_identity<fsr32, 4>();
 }
 
-void
+bool
 mnCamera::update(fsRawInput *input, mnPlatform *platform, fsr32 dt) {
     fsv2f mousePos = {input->mouseX, input->mouseY};
     fsv2f delta = (mousePos - _lastMousePosition) * 0.002f;
@@ -31,7 +31,7 @@ mnCamera::update(fsRawInput *input, mnPlatform *platform, fsr32 dt) {
     
     if (!input->mouseRight.isDown) {
         platform->show_cursor();
-        return;
+        return false;
     }
     
     platform->hide_cursor();
@@ -81,6 +81,8 @@ mnCamera::update(fsRawInput *input, mnPlatform *platform, fsr32 dt) {
         recalculateView();
         recalculateRayDirections();
     }
+    
+    return moved;
 }
 
 void

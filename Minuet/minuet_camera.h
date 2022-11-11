@@ -17,7 +17,7 @@ struct mnPlatform;
 struct mnCamera {
     mnCamera(fsr32 verticalFOV, fsr32 nearClip, fsr32 farClip);
     
-    void update(fsRawInput *input, mnPlatform *platform, fsr32 dt);
+    bool update(fsRawInput *input, mnPlatform *platform, fsr32 dt);
     void resize(fsi16 width, fsi16 height);
     
     const fsmat4f& getProjection() const { return _projection; }

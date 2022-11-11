@@ -10,9 +10,10 @@ import MNRayTrace
 
 
 class MinuetView: NSView {
+    let renderer: OpaquePointer
+    let camera: OpaquePointer
+    
     private var bitmapContext: CGContext?
-    private let renderer: OpaquePointer
-    private let camera: OpaquePointer
     
     struct Viewport {
         let width: Int
@@ -97,7 +98,7 @@ class MinuetView: NSView {
         let viewportWidth = Int16(currentViewport.width)
         let viewportHeight = Int16(currentViewport.height)
         mn_camera_resize(camera, viewportWidth, viewportHeight)
-        mn_camera_update(camera, input, dt)
+        mn_camera_update(camera, renderer, input, dt)
         mn_renderer_resize(renderer, viewportWidth, viewportHeight)
         
         if let image = mn_renderer_render(renderer, scene, camera), let imageData = mn_image_get_data(image) {
