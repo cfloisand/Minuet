@@ -64,6 +64,8 @@ private:
 private:
     Settings _settings;
     
+    std::vector<fsu32> _imageHorizontalIter, _imageVerticalIter;
+    
     mnImage * _image = nullptr;
     fsv4f * _accumulationData = nullptr;
     fsu32 _frameIndex = 1;

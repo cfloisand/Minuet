@@ -7,6 +7,7 @@
 //
 
 #include "minuet_renderer.h"
+#include <dispatch/dispatch.h>
 
 
 #pragma mark - mnImage
@@ -57,18 +58,28 @@ mnRenderer::render(const mnScene& scene, const mnCamera& camera) {
             fs_memclear(_accumulationData, _image->width * _image->height * sizeof(fsv4f));
         }
         
+        // NOTE(christian): TheCherno uses a parallel for_each loop here, which requires C++17. I am on an older iMac, however, which does not allow me to update to the newest Xcode, and my current version
+        // of Xcode (12) does not have support for C++17. As a replacement, I'm using Apple's GCD library to multithread the following code with very good, comparable results to what TheCherno achieved
+        // with parallel for_each.
+        dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0);
+        dispatch_group_t group = dispatch_group_create();
+        
         for (fsu32 y = 0; y < _image->height; ++y) {
-            for (fsu32 x = 0; x < _image->width; ++x) {
-                fsv4f color = perPixel(x, y);
-                _accumulationData[x + (y * _image->width)] += color;
-                
-                fsv4f accumulatedColor = _accumulationData[x + (y * _image->width)];
-                accumulatedColor /= (fsr32)_frameIndex;
-                
-                accumulatedColor = fs_vclamp01(accumulatedColor);
-                _image->pixelData[x + (y * _image->width)] = convertToRGBA(accumulatedColor);
-            }
+            dispatch_group_async(group, queue, ^{
+                for (fsu32 x = 0; x < _image->width; ++x) {
+                    fsv4f color = perPixel(x, y);
+                    _accumulationData[x + (y * _image->width)] += color;
+
+                    fsv4f accumulatedColor = _accumulationData[x + (y * _image->width)];
+                    accumulatedColor /= (fsr32)_frameIndex;
+
+                    accumulatedColor = fs_vclamp01(accumulatedColor);
+                    _image->pixelData[x + (y * _image->width)] = convertToRGBA(accumulatedColor);
+                }
+            });
         }
+        
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     }
     
     if (_settings.accumulate) {
@@ -96,6 +107,15 @@ mnRenderer::resize(fsi16 width, fsi16 height) {
     
     delete [] _accumulationData;
     _accumulationData = new fsv4f[width * height];
+    
+    _imageHorizontalIter.resize(width);
+    _imageVerticalIter.resize(height);
+    for (fsu32 i = 0; i < width; ++i) {
+        _imageHorizontalIter[i] = i;
+    }
+    for (fsu32 i = 0; i < height; ++i) {
+        _imageVerticalIter[i] = i;
+    }
 }
 
 fsv4f
