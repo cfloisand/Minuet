@@ -26,3 +26,5 @@ struct mnPlatform {
     platform_call_f show_cursor;
     platform_call_f quit;
 };
+
+fsv3f fsv3f_random(fsr32 min, fsr32 max);

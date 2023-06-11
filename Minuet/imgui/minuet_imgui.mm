@@ -116,6 +116,8 @@ mn_imgui_update(NSView *view, id<CAMetalDrawable> drawable, mnScene *scene, mnRe
             ImGui::ColorEdit3("Albedo", material.albedo.e);
             ImGui::DragFloat("Roughness", &material.roughness, 0.05f, 0.f, 1.f);
             ImGui::DragFloat("Metallic", &material.metallic, 0.05f, 0.f, 1.f);
+            ImGui::ColorEdit3("Emission Color", material.emissionColor.e);
+            ImGui::DragFloat("Emission Power", &material.emissionPower, 0.05f, 0.f, FLT_MAX);
             ImGui::Separator();
             ImGui::PopID();
         }

@@ -124,36 +124,33 @@ mnRenderer::perPixel(fsu32 x, fsu32 y) {
     ray.origin = _activeCamera->getPosition();
     ray.direction = _activeCamera->getRayDirections()[x + y * _image->width];
     
-    fsv3f color = {};
-    fsr32 multiplier = 1.f;
+    fsv3f light = {};
+    fsv3f contribution = {1.f, 1.f, 1.f};
     
     int bounces = 5;
     for (int i = 0; i < bounces; ++i) {
         mnRenderer::HitPayload payload = traceRay(ray);
         if (payload.hitDistance < 0.f) {
             fsv3f skyColor = {0.6f, 0.7f, 0.9f};
-            color += skyColor * multiplier;
+//            light += fs_vhadamard(skyColor, contribution);
             break;
         }
-        
-        fsv3f lightDir = fs_vnormalize((fsv3f){-1.f, -1.f, -1.f});
-        fsr32 d = fsMax(fs_vdot(payload.worldNormal, -lightDir), 0.f);
         
         const mnSphere& sphere = _activeScene->spheres[payload.objectIndex];
         const mnMaterial& material = _activeScene->materials[sphere.materialIndex];
         
-        fsv3f sphereColor = material.albedo;
-        sphereColor *= d;
-        color += sphereColor * multiplier;
+//        light += fs_vhadamard(material.albedo, contribution);
+        contribution = fs_vhadamard(contribution, material.albedo);
+        light += material.getEmission();
         
-        multiplier *= 0.5f;
-        
-        fsv3f randomOffset = fs_vcreate<fsr32, 3>(fs_map_to_range(fs_random01(), 0.f, 1.f, -0.5f, 0.5f));
+//        fsv3f randomOffset = fsv3f_random(-0.5f, 0.5f);
         ray.origin = payload.worldPosition + payload.worldNormal * 0.0001f;
-        ray.direction = fs_vreflect(ray.direction, payload.worldNormal + material.roughness * randomOffset);
+//        ray.direction = fs_vreflect(ray.direction, payload.worldNormal + material.roughness * randomOffset);
+        fsv3f inUnitSphere = fs_vnormalize(fsv3f_random(-1.f, 1.f));
+        ray.direction = fs_vnormalize(payload.worldNormal + inUnitSphere);
     }
     
-    return {color.r, color.g, color.b, 1.f};
+    return {light.r, light.g, light.b, 1.f};
 }
 
 mnRenderer::HitPayload

@@ -92,8 +92,15 @@ mn_make_scene() {
     blueSphere.albedo = {0.2f, 0.3f, 1.f};
     blueSphere.roughness = 0.1f;
     
+    mnMaterial orangeSphere;
+    orangeSphere.albedo = {0.8f, 0.5f, 0.2f};
+    orangeSphere.roughness = 0.1f;
+    orangeSphere.emissionColor = orangeSphere.albedo;
+    orangeSphere.emissionPower = 2.f;
+    
     scene->materials.push_back(pinkSphere);
     scene->materials.push_back(blueSphere);
+    scene->materials.push_back(orangeSphere);
     
     mnSphere sphere0;
     sphere0.position = {0.f, 0.f, 0.f};
@@ -102,10 +109,16 @@ mn_make_scene() {
     scene->spheres.push_back(sphere0);
     
     mnSphere sphere1;
-    sphere1.position = {1.f, -101.f, 0.f};
-    sphere1.radius = 100.f;
-    sphere1.materialIndex = 1;
+    sphere1.position = {2.f, 0.f, 0.f};
+    sphere1.radius = 1.f;
+    sphere1.materialIndex = 2;
     scene->spheres.push_back(sphere1);
+    
+    mnSphere sphere2;
+    sphere2.position = {1.f, -101.f, 0.f};
+    sphere2.radius = 100.f;
+    sphere2.materialIndex = 1;
+    scene->spheres.push_back(sphere2);
     
     return scene;
 }

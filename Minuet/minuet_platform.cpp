@@ -6,3 +6,9 @@
 //
 
 #include "minuet_platform.h"
+
+fsv3f
+fsv3f_random(fsr32 min, fsr32 max) {
+    fsv3f vec = { fs_random01() * (max - min) + min, fs_random01() * (max - min) + min, fs_random01() * (max - min) + min };
+    return vec;
+}
