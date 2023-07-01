@@ -27,4 +27,10 @@ struct mnPlatform {
     platform_call_f quit;
 };
 
+fsu32 pcgHash(fsu32 input);
+
+fsr32 randomFloat(fsu32& seed);
+
 fsv3f fsv3f_random(fsr32 min, fsr32 max);
+
+fsv3f fsv3f_random(fsu32& seed);

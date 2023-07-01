@@ -90,6 +90,16 @@ fs_random_xorshift() {
     return x;
 }
 
+fsu32
+fs_random_wang_hash(fsu32 seed) {
+    seed = (seed ^ 61) ^ (seed >> 16);
+    seed *= 9;
+    seed = seed ^ (seed >> 4);
+    seed *= 0x27d4eb2d;
+    seed = seed ^ (seed >> 15);
+    return seed;
+}
+
 fsr32 
 fs_lerp(fsr32 from, fsr32 t, fsr32 to) {
     return (1.f - t) * from + t * to;

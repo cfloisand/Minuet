@@ -281,6 +281,8 @@ fsr32 fs_random01();
 fsu32 fs_random(fsu32 seed);
 /*! @brief Returns a 32-bit unsigned random integer using xorshift. */
 fsu32 fs_random_xorshift();
+/*! @brief Returns a 32-bit unsigned random integer using Wang Hash.*/
+fsu32 fs_random_wang_hash(fsu32 seed);
 
 /*! @brief Linear interpolation between \c from and \c to given interpolation value \c t. */
 fsr32 fs_lerp(fsr32 from, fsr32 t, fsr32 to);

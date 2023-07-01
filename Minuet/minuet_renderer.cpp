@@ -47,6 +47,11 @@ convertToRGBA(const fsv4f& color) {
     return result;
 }
 
+static fsv3f
+randomInUnitSphere(fsu32& seed) {
+    return fs_vnormalize(fsv3f_random(seed));
+}
+
 mnImage*
 mnRenderer::render(const mnScene& scene, const mnCamera& camera) {
     fsTimingToken *start = fs_timing_start();
@@ -127,8 +132,12 @@ mnRenderer::perPixel(fsu32 x, fsu32 y) {
     fsv3f light = {};
     fsv3f contribution = {1.f, 1.f, 1.f};
     
+    fsu32 seed = x + y * _image->width;
+    seed *= _frameIndex;
+    
     int bounces = 5;
     for (int i = 0; i < bounces; ++i) {
+        seed += i;
         mnRenderer::HitPayload payload = traceRay(ray);
         if (payload.hitDistance < 0.f) {
             fsv3f skyColor = {0.6f, 0.7f, 0.9f};
@@ -139,15 +148,11 @@ mnRenderer::perPixel(fsu32 x, fsu32 y) {
         const mnSphere& sphere = _activeScene->spheres[payload.objectIndex];
         const mnMaterial& material = _activeScene->materials[sphere.materialIndex];
         
-//        light += fs_vhadamard(material.albedo, contribution);
         contribution = fs_vhadamard(contribution, material.albedo);
         light += material.getEmission();
         
-//        fsv3f randomOffset = fsv3f_random(-0.5f, 0.5f);
         ray.origin = payload.worldPosition + payload.worldNormal * 0.0001f;
-//        ray.direction = fs_vreflect(ray.direction, payload.worldNormal + material.roughness * randomOffset);
-        fsv3f inUnitSphere = fs_vnormalize(fsv3f_random(-1.f, 1.f));
-        ray.direction = fs_vnormalize(payload.worldNormal + inUnitSphere);
+        ray.direction = fs_vnormalize(payload.worldNormal + randomInUnitSphere(seed));
     }
     
     return {light.r, light.g, light.b, 1.f};
